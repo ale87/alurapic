@@ -1,2 +1,3 @@
-<app-photo></app-photo>
+<app-photo *ngFor='let photo of photos' [image]='photo.url' [title]='photo.description'></app-photo>
+
 <router-outlet></router-outlet>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-photo',
@@ -7,8 +7,8 @@ import { Component } from '@angular/core';
 })
 
 export class PhotoComponent {
-  title: String = 'Sakura'
-  image: String = 'https://catracalivre.com.br/wp-content/uploads/2019/05/festival-de-sakura.jpg'
+  @Input() title: String = ''
+  @Input() image: String = ''
   
   constructor() { }
 }
