@@ -1,6 +1,10 @@
+<p class='text-center text-muted' *ngIf='!rows.length'>
+    Nenhuma foto encontrada =(
+</p>
+
 <ol class='list-unstyled'> 
     <li *ngFor='let col of rows' class='row'>
-        <div *ngFor='let photo of col' class='col-xs-4'>
+        <div *ngFor='let photo of col' class='col-4'>
             <app-photo 
                 [image]='photo.url' 
                 [title]='photo.description'>
@@ -8,4 +12,3 @@
         </div>        
     </li>
 </ol>
-

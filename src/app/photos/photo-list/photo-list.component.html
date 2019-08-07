@@ -1,2 +1,12 @@
-<app-photo-grid [photos]='photos'></app-photo-grid>
+<div class='text-center mt-3 mb-3'>
+    <form>
+        <input type='search' 
+            class='rounded'
+            placeholder='Digite sua pesquisa...'
+            autofocus
+            (keyup)='debounce.next($event.target.value)'>
+    </form>
+</div>
+
+<app-photo-grid [photos]='photos | imageFilter: filter'></app-photo-grid>
     

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Photo } from '../../photo/photo';
 
 @Component({
@@ -6,16 +6,18 @@ import { Photo } from '../../photo/photo';
   templateUrl: './photo-grid.component.html',
   styleUrls: ['./photo-grid.component.css']
 })
-export class PhotoGridComponent implements OnInit {
+export class PhotoGridComponent implements OnChanges {
   @Input() photos: Photo[] = []
+  filter: string
   rows: any[] = []  
 
-  ngOnInit() {
-    this.rows = this.getRows(this.photos)
+  ngOnChanges(changes: SimpleChanges) {
+    changes.photos && this.getRows()
   }
 
-  getRows(photos: Photo[]): any {    
-    photos.forEach((valor, index) =>
-      index % 3 === 0 && this.rows.push(photos.slice(index, index + 3)))    
+  getRows(): any {    
+    this.rows = []
+    this.photos.forEach((valor, index) => 
+      index % 3 === 0 && this.rows.push(this.photos.slice(index, index + 3)))    
   }  
 }
