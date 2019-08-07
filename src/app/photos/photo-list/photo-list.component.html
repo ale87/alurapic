@@ -1,5 +1,6 @@
 <div class='text-center mt-3 mb-3'>
     <form>
+        <i class='fa fa-search mr-2' aria-hidden='true'></i>
         <input type='search' 
             class='rounded'
             placeholder='Digite sua pesquisa...'
@@ -9,4 +10,6 @@
 </div>
 
 <app-photo-grid [photos]='photos | imageFilter: filter'></app-photo-grid>
+
+<app-load-button [hasMore]='hasMore' (click)='load()'></app-load-button>
     
