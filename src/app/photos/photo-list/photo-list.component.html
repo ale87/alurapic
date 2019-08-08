@@ -1,15 +1,4 @@
-<div class='text-center mt-3 mb-3'>
-    <form>
-        <i class='fa fa-search mr-2' aria-hidden='true'></i>
-        <input type='search' 
-            class='rounded'
-            placeholder='Digite sua pesquisa...'
-            autofocus
-            (keyup)='debounce.next($event.target.value)'>
-    </form>
-</div>
-
+<app-search (onFiltering)='filter = $event' [filter]='filter'></app-search>
 <app-photo-grid [photos]='photos | imageFilter: filter'></app-photo-grid>
-
 <app-load-button [hasMore]='hasMore' (click)='load()'></app-load-button>
     

@@ -7,7 +7,7 @@ import { PhotoListModule } from './photo-list/photo-list.module'
     imports: [        
         PhotoModule,
         PhotoListModule,
-        PhotoFormModule       
+        PhotoFormModule
     ] 
 })
 
