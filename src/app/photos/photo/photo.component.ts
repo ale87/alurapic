@@ -7,6 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 
 export class PhotoComponent {
-  @Input() title: String = ''
-  @Input() image: String = ''
+  @Input() title: string = ''
+  @Input() image: string = ''
 }

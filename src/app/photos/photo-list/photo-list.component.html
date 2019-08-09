@@ -1,4 +1,4 @@
 <app-search (onFiltering)='filter = $event' [filter]='filter'></app-search>
-<app-photo-grid [photos]='photos | imageFilter: filter'></app-photo-grid>
-<app-load-button [hasMore]='hasMore' (click)='load()'></app-load-button>
+<app-photo-grid [photos]='photos | imageFilter: filter' (onHasRows)='hasRows = $event'></app-photo-grid>
+<app-load-button [hasMore]='hasMore' [hasRows]='hasRows' (click)='load()'></app-load-button>
     

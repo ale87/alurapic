@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import { NotFoundComponent } from './not-found/not-found.component'
+import { MessageComponent } from './message.component'
 
 @NgModule({
-  declarations: [ 
-    NotFoundComponent
+  declarations: [
+    MessageComponent
   ],
   imports: [
     CommonModule
   ]
 })
 
-export class ErrorsModule { }
+export class MessageModule { }

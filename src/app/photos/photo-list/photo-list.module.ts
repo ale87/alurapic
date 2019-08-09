@@ -7,6 +7,7 @@ import { PhotoGridComponent } from './photo-grid/photo-grid.component'
 import { SearchComponent } from './search/search.component'
 import { CardModule } from './../../shared/components/card/card.module'
 import { ImageFilterPipe } from './image-filter.pipe'
+import { DarkenOnHoverModule } from './../../shared/directives/darken-on-hover/darken-on-hover.module'
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ImageFilterPipe } from './image-filter.pipe'
   imports: [
     CommonModule,
     PhotoModule,
-    CardModule
+    CardModule,
+    DarkenOnHoverModule
   ]
 })
 

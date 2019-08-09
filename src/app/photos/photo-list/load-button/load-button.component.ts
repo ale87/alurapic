@@ -7,5 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 
 export class LoadButtonComponent {
+  @Input() hasRows: boolean
   @Input() hasMore: boolean
 }

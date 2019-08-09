@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, Input } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
 import { Photo } from '../photo/photo'
 import { PhotoService } from '../photo/photo.service';
@@ -9,12 +9,13 @@ import { PhotoService } from '../photo/photo.service';
   styleUrls: ['./photo-list.component.css']
 })
 
-export class PhotoListComponent implements OnInit {
+export class PhotoListComponent implements OnInit {  
   photos: Photo[] = []
   filter: string = ''
   user: string = ''
   currentPage: number = 1
   hasMore: boolean = true
+  hasRows: boolean = true
 
   constructor(
     private route: ActivatedRoute,
