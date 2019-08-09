@@ -1,0 +1,4 @@
+<app-default-message [message]='message' *ngIf='type === "default"'></app-default-message>
+<app-error-message [message]='message' *ngIf='type === "error"'></app-error-message>
+<app-warning-message [message]='message' *ngIf='type === "warning"'></app-warning-message>
+<app-success-message [message]='message' *ngIf='type === "success"'></app-success-message>

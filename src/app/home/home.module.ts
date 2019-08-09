@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { ReactiveFormsModule } from '@angular/forms'
-import { MessageModule } from './../shared/components/message/message.module'
+import { MessagesModule } from './../shared/components/messages/messages.module'
 import { SigninComponent } from './signin/signin/signin.component'
+import { RouterModule } from '@angular/router'
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { SigninComponent } from './signin/signin/signin.component'
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    MessageModule
+    MessagesModule,
+    RouterModule
   ]
 })
 
