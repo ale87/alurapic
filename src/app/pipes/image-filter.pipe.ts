@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core'
-import { Photo } from './../photo/photo'
+import { Photo } from '../shared/interfaces/photo';
 
 @Pipe({ name: 'imageFilter' })
 export class ImageFilterPipe implements PipeTransform {

@@ -1,0 +1,46 @@
+<h4 class='text-center'>Registre-se</h4>
+<form [formGroup]='form' (submit)='register()' class='form mt-4'>
+    <div class='form-group'>
+        <input type='text' formControlName='fullName' class='form-control' placeholder='Nome' #fullNameInput>
+    </div>
+    <app-messages *ngIf='form.get("fullName").errors?.required' type='error' [message]='fullNameMessage.required'>
+    </app-messages>
+    <app-messages *ngIf='form.get("fullName").errors?.minlength' type='error' [message]='fullNameMessage.minlength'>
+    </app-messages>
+    <app-messages *ngIf='form.get("fullName").errors?.maxlength' type='error' [message]='fullNameMessage.maxlength'>
+    </app-messages>
+    <app-messages *ngIf='form.get("fullName").errors?.letterOnly' type='error' [message]='fullNameMessage.letterOnly'>
+    </app-messages>
+    <div class='form-group'>
+        <input type='text' formControlName='userName' class='form-control' placeholder='Nickname'>
+    </div>
+    <app-messages *ngIf='form.get("userName").errors?.required' type='error' [message]='userNameMessage.required'>
+    </app-messages>
+    <app-messages *ngIf='form.get("userName").errors?.minlength' type='error' [message]='userNameMessage.minlength'>
+    </app-messages>
+    <app-messages *ngIf='form.get("userName").errors?.maxlength' type='error' [message]='userNameMessage.maxlength'>
+    </app-messages>
+    <app-messages *ngIf='form.get("userName").errors?.lowerCase' type='error' [message]='userNameMessage.lowerCase'>
+    </app-messages>
+    <app-messages *ngIf='form.get("userName").errors?.userTaken' type='error' [message]='userNameMessage.userTaken'>
+    </app-messages>
+    <app-messages *ngIf='form.get("userName").valid' type='success' [message]='userNameMessage.userNotTaken'>
+    </app-messages>
+    <div class='form-group'>
+        <input type='text' formControlName='email' class='form-control' placeholder='Email'>
+    </div>
+    <app-messages *ngIf='form.get("email").errors?.required' type='error' [message]='emailMessage.required'>
+    </app-messages>
+    <app-messages *ngIf='form.get("email").errors?.email' type='error' [message]='emailMessage.email'></app-messages>
+    <div class='form-group'>
+        <input type='password' formControlName='password' class='form-control' placeholder='Password'>
+    </div>
+    <app-messages *ngIf='form.get("password").errors?.required' type='error' [message]='passwordMessage.required'>
+    </app-messages>
+    <app-messages *ngIf='form.get("password").errors?.minlength' type='error' [message]='passwordMessage.minlength'>
+    </app-messages>
+    <app-messages *ngIf='form.get("password").errors?.maxlength' type='error' [message]='passwordMessage.maxlength'>
+    </app-messages>
+    <button [disabled]='form.invalid || form.pending' class='btn btn-primary btn-block'>Registrar</button>
+</form>
+<p class='text-center'>Já é um usuário? <a [routerLink]='[""]'>Acesse por aqui!</a></p>

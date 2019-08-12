@@ -1,15 +1,15 @@
 <h4 class='text-center'>Acesso</h4>
-<form [formGroup]='form' class='form mt-4' (submit)='login()'>
+<form [formGroup]='form' (submit)='login()' class='form mt-4'>
     <div class='form-group'>
-        <input type='text' formControlName='userName' class='form-control' placeholder='Nome' autofocus />
+        <input type='text' formControlName='userName' class='form-control' placeholder='Nickname' #userNameInput/>
     </div>
-    <app-messages *ngIf='form.get("userName").errors?.required' type='error' [message]='userMessage'></app-messages>
+    <app-messages *ngIf='form.get("userName").errors?.required' type='error' [message]='userNameMessage'></app-messages>
     <div class='form-group'>
         <input type='password' formControlName='password' class='form-control' placeholder='Senha' />
     </div>
-    <app-messages *ngIf='form.get("password").errors?.required' type='error' [message]='passMessage'></app-messages>
+    <app-messages *ngIf='form.get("password").errors?.required' type='error' [message]='passwordMessage'></app-messages>
     <button type='submit' [disabled]='form.invalid' class='btn btn-primary btn-block'>
         Acessar
     </button>
 </form>
-<p>Ainda não possui uma conta? <a>Registre-se agora mesmo!</a></p>
+<p class='text-center'>Ainda não possui uma conta? <a [routerLink]='["register"]'>Registre-se agora mesmo!</a></p>

@@ -1,15 +1,19 @@
 import { NgModule } from '@angular/core'
 import { Routes, RouterModule } from '@angular/router'
+import { PhotoListResolver } from './resolvers/photo-list.resolver'
 import { PhotoListComponent } from './photos/photo-list/photo-list.component'
 import { PhotoFormComponent } from './photos/photo-form/photo-form.component'
 import { NotFoundComponent } from './errors/not-found/not-found.component'
-import { SigninComponent } from './home/signin/signin/signin.component'
-import { PhotoListResolver } from './photos/photo-list/photo-list.resolver'
 
 const routes: Routes = [
   {
     path: '',
-    component: SigninComponent,
+    pathMatch: 'full',
+    redirectTo: 'home'
+  },
+  {
+    path: 'home',
+    loadChildren: './home/home.module#HomeModule'
   },
   {
     path: 'user/:user',

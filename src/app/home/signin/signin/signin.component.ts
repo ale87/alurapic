@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
-import { RouterModule } from '@angular/router'
-import { AuthService } from 'src/app/services/auth.service'
+import { Router } from '@angular/router'
+import { PlatformDetectableService } from 'src/app/services/platform-detector.service'
+import { AuthService } from './../../../services/auth.service'
 
 @Component({
   templateUrl: './signin.component.html',
@@ -10,28 +11,37 @@ import { AuthService } from 'src/app/services/auth.service'
 
 export class SigninComponent implements OnInit {
   form: FormGroup
-  userMessage: string = 'Usuário é obrigatório'
-  passMessage: string = 'Senha é obrigatória'
+  userNameMessage: string = 'Usuário é obrigatório'
+  passwordMessage: string = 'Senha é obrigatória'
+  @ViewChild('userNameInput', { static: false }) userNameInput: ElementRef<HTMLInputElement>
 
   constructor(
     private formBuilder: FormBuilder,
     private auth: AuthService,
-    private router: RouterModule
+    private platform: PlatformDetectableService,
+    private router: Router
   ) { }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     this.form = this.formBuilder.group({
       userName: ['', Validators.required],
       password: ['', Validators.required]
     })
   }
 
+  ngAfterViewInit(): void {
+    this.platform.isPlatformBrowser() && this.userNameInput.nativeElement.focus()
+  }
+
   login() {
-    const user = { 
+    const user = {
       userName: this.form.get('userName').value,
       password: this.form.get('password').value
     }
     this.auth.autenticate(user)
-      .subscribe(() => this.router.navigate(['user', user.userName]))
+      .subscribe(
+        () => this.router.navigate(['user', user.userName]),
+        () => this.platform.isPlatformBrowser() && this.userNameInput.nativeElement.focus()
+      )
   }
 }

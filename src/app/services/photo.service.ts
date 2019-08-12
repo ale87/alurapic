@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http'
 import { Injectable } from '@angular/core'
-import { Photo } from './photo';
+import { Photo } from '../shared/interfaces/photo';
 
 const API = 'http://localhost:3000'
 

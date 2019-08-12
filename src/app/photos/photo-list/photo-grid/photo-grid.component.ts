@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core'
-import { Photo } from '../../photo/photo'
+import { Photo } from '../../../shared/interfaces/photo'
 
 @Component({
   selector: 'app-photo-grid',
